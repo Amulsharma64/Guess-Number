@@ -1,0 +1,204 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.main {
+    background: #000;
+    opacity: 0.8;
+    color: #fff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main h3 {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.again {
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    /* border: 2px solid red; */
+    margin: 1rem 0rem;
+}
+
+.again button {
+    padding: 0.6rem 1rem;
+    margin: 0rem 2.5rem;
+    border-radius: 5px;
+    background: rgb(21, 21, 255);
+    border: none;
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.again button:hover {
+    background-color: rgb(29, 29, 155);
+    padding: 0.6rem 0.9rem;
+
+}
+
+.enteredNumber {
+    margin: 1rem 0rem;
+    color: rgb(21, 21, 255);
+    font-weight: bold;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.enteredNumber span {
+    position: relative;
+    height: 0;
+    width: 0;
+    border: 45px solid transparent;
+    top: -50px;
+    border-bottom-color: #fff;
+}
+
+.enteredNumber span::after {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    border: 45px solid transparent;
+    top: -50px;
+    border-top-color: #fff;
+    top: 45px;
+    left: -45px;
+}
+
+
+.enteredNumber span p {
+    position: absolute;
+    top: 36px;
+    left: -9px;
+    z-index: 10;
+}
+
+.formArea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+    margin: 1rem;
+    /* border: 2px solid red; */
+}
+
+.formArea input {
+    margin: 0rem 2.5rem;
+    height: 34px;
+    text-align: center;
+    border: none;
+    outline: none;
+
+}
+
+.formArea button {
+    margin: 1rem 4.8rem;
+    padding: 0.6rem 1.5rem;
+    font-weight: bold;
+    background: rgb(21, 21, 255);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formArea button:hover {
+    background-color: rgb(29, 29, 155);
+    padding: 0.6rem 1.4rem;
+
+}
+
+.alert {
+    position: relative;
+    width: 300px;
+    height: 130px;
+    background: #fff;
+    top: -350px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    /* border: 2px solid red; */
+}
+
+.alert p {
+    color: rgb(21, 21, 255);
+    z-index: 13;
+    font-size: 12px;
+    flex-direction: column;
+}
+
+.alert::before {
+    content: '';
+    width: 120px;
+    height: 600%;
+    position: absolute;
+    background-image: conic-gradient(red, transparent);
+    box-shadow: 0 0 20px #999;
+    animation: animate 4s linear infinite;
+}
+
+.alert::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.alert i {
+    background: linear-gradient(90deg, rgba(247, 2, 19, 1) 0%, rgba(6, 207, 9, 1) 51%, rgba(38, 2, 247, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    right: 16px;
+    top: 7px;
+    z-index: 20;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.aside {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    align-items: flex-end;
+    /* overflow: hidden; */
+}
+
+.aside p {
+    margin: 0.4rem 2rem;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.aside p span {
+    color: orangered;
+}
+
+.hidealert {
+    display: none;
+}
