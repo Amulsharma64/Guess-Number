@@ -13,7 +13,7 @@ let i = 1;
 
 const RandomNumber = () => { // function to generate random number
   displayValue.innerHTML = `?`;
-  return Math.floor(Math.random() * 100) + 1;
+  return Math.floor(Math.random() * 300) + 1;
  
 };
 
@@ -31,7 +31,7 @@ const isMatch = () => { // function to check the number matched or not
     } else if (values < number) {
       aside.appendChild(
         para
-      ).innerHTML = `You Entered <span> ${values} </span> is Small than the actual number `;
+      ).innerHTML = `You Entered <span> ${values} </span> is Smaller than the actual number `;
       displayValue.innerHTML = values;
     } else{
       run = false;
