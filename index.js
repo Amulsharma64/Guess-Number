@@ -8,10 +8,10 @@ let para1 = document.createElement("p");
 const X_mark = document.querySelector(".fa-xmark");
 let para2 = document.createElement("p");
 const alerts = document.querySelector(".alert");
+let displayValue = document.querySelector(".enteredNumber span p"); // to display the entered number
 let i = 1;
 
 const RandomNumber = () => { // function to generate random number
-  let displayValue = document.querySelector(".enteredNumber span p"); // to display the entered number
   displayValue.innerHTML = `?`;
   return Math.floor(Math.random() * 100) + 1;
  
@@ -33,7 +33,7 @@ const isMatch = () => { // function to check the number matched or not
         para
       ).innerHTML = `You Entered <span> ${values} </span> is Small than the actual number `;
       displayValue.innerHTML = values;
-    } else {
+    } else{
       run = false;
       alerts.classList.remove("hidealert");
       alerts.appendChild(para).innerHTML = ` Hurray 🥇 you find Correct Number`;
@@ -44,7 +44,7 @@ const isMatch = () => { // function to check the number matched or not
       displayValue.innerHTML = number;
     }
 
-    side.appendChild(para1).innerHTML = `You tried <span> ${i} </span> times `;
+    aside.appendChild(para1).innerHTML = `You tried <span> ${i} </span> times `;
     i++;
     console.log(i);
   } else {
@@ -57,7 +57,9 @@ const isMatch = () => { // function to check the number matched or not
 
 const handleform = (e) => { // function to handle the form
   e.preventDefault();
-  isMatch();
+  if(run){
+    isMatch();
+  }
 };
 
 X_mark.addEventListener("click", () => { // function to close the alert box
@@ -66,7 +68,6 @@ X_mark.addEventListener("click", () => { // function to close the alert box
 
 again.addEventListener("click", () => { // function to reset the game
   number = RandomNumber();
-  displayValue.innerHTML = ``;
   formValue.value = "";
   aside.appendChild(para).innerHTML = "";
   aside.appendChild(para1).innerHTML = "";
