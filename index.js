@@ -2,7 +2,6 @@ const main = document.querySelector(".main");
 const again = document.querySelector(".again .btn");
 const formArea = document.querySelector(".formArea");
 let formValue = document.querySelector(".formValue");
-let displayValue = document.querySelector(".enteredNumber span p");
 let aside = document.querySelector(".aside");
 let para = document.createElement("p");
 let para1 = document.createElement("p");
@@ -10,11 +9,18 @@ const X_mark = document.querySelector(".fa-xmark");
 let para2 = document.createElement("p");
 const alerts = document.querySelector(".alert");
 let i = 1;
-const number = Math.trunc(Math.random() * 300) + 1;
-displayValue.innerHTML = `?`;
-// console.log(X_mark);
+
+const RandomNumber = () => { // function to generate random number
+  let displayValue = document.querySelector(".enteredNumber span p"); // to display the entered number
+  displayValue.innerHTML = `?`;
+  return Math.floor(Math.random() * 100) + 1;
+ 
+};
+
+let number = RandomNumber(); // function to generate random number on window load
 let run = true;
-const increment = () => {
+
+const isMatch = () => { // function to check the number matched or not
   let values = parseInt(formValue.value);
   if (i <= 10 && run) {
     if (values > number) {
@@ -38,7 +44,7 @@ const increment = () => {
       displayValue.innerHTML = number;
     }
 
-    aside.appendChild(para1).innerHTML = `You tried <span> ${i} </span> times `;
+    side.appendChild(para1).innerHTML = `You tried <span> ${i} </span> times `;
     i++;
     console.log(i);
   } else {
@@ -49,18 +55,22 @@ const increment = () => {
   }
 };
 
-const handleform = (e) => {
+const handleform = (e) => { // function to handle the form
   e.preventDefault();
-  increment();
+  isMatch();
 };
-X_mark.addEventListener("click", () => {
+
+X_mark.addEventListener("click", () => { // function to close the alert box
   alerts.classList.add("hidealert");
 });
-again.addEventListener("click", () => {
+
+again.addEventListener("click", () => { // function to reset the game
+  number = RandomNumber();
   displayValue.innerHTML = ``;
   formValue.value = "";
   aside.appendChild(para).innerHTML = "";
   aside.appendChild(para1).innerHTML = "";
+  alerts.classList.add("hidealert");
   main.style.backgroundColor = "rgb(255, 137, 157)";
   run = true;
   i = 1;
